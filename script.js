@@ -2,6 +2,7 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const mainImage = document.getElementById("mainImage");
 const gifImage = document.getElementById("gifImage");
+const gifText = document.getElementById("gifText");
 const question = document.getElementById("question");
 const options = document.getElementById("options");
 
@@ -23,10 +24,11 @@ function flashRainbowColors(callback) {
 // Yes button behavior
 yesBtn.addEventListener("click", () => {
     flashRainbowColors(() => {
-        mainImage.style.display = "none";  // hide Ellie PNG
-        gifImage.style.display = "block";  // show Mwah GIF
-        question.style.display = "none";   // hide question
-        options.style.display = "none";    // hide buttons
+        mainImage.style.display = "none";   // hide Ellie PNG
+        gifImage.style.display = "block";   // show Mwah GIF
+        gifText.style.display = "block";    // show text under GIF
+        question.style.display = "none";    // hide question
+        options.style.display = "none";     // hide buttons
     });
 });
 
@@ -35,32 +37,3 @@ noBtn.addEventListener("click", () => {
     noBtn.innerText = "You sure?";
     yesBtn.style.fontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize) * 1.5 + "px";
 });
-
-// Select the audio element
-const music = document.getElementById("bgMusic");
-
-
-// Select the audio element
-const song = document.getElementById("bgMusic");
-music.loop = true;
-
-// Flag to ensure music only starts once
-let musicStarted = false;
-
-// Function to play music on first interaction
-function startMusic() {
-    if (!musicStarted) {
-        music.play().catch(err => {
-            console.log("Autoplay blocked:", err);
-        });
-        musicStarted = true;
-        // Remove the event listeners once triggered
-        window.removeEventListener("click", startMusic);
-        window.removeEventListener("keydown", startMusic);
-    }
-}
-
-// Listen for the first click or key press
-window.addEventListener("click", startMusic);
-window.addEventListener("keydown", startMusic);
-
