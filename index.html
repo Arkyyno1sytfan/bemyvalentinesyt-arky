@@ -1,27 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-    <div id="image-container">
-    <img id="mainImage" src="ellie.png" alt="Ellie">
-    <img id="gifImage" src="mwah.gif" alt="Mwah" style="display:none;">
-</div>
-
 <head>
   <meta charset="UTF-8">
-  <title>May I be your Valentine?</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>May I be your valentine?</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
+  <!-- Google Font: Minimalist -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+
+  <style>
+    /* ----- Layout Styles ----- */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    #container {
+      max-width: 600px;       
+      margin: 0 auto;         
+      padding: 20px;
+    }
+
+    #image-container {
+      text-align: center;      
+      margin-top: 40px;        
+      margin-bottom: 20px;     
+    }
+
+    #image-container img {
+      max-width: 100%;         
+      height: auto;            
+      display: inline-block;   
+    }
+
+    #question {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    #options button {
+      font-size: 1.5em;
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    #toggleMusic {
+      margin-top: 30px;
+      padding: 8px 16px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<div id="container">
-    <div id="image-container"></div> <!-- JS will fill this -->
-    <div id="question">May I be your valentine?</div>
-    <div id="options">
-        <button id="yes-button" onclick="selectOption('yes')">Yes</button>
-        <button id="no-button" onclick="selectOption('no')">No</button>
+  <div id="container">
+    <!-- Image Container -->
+    <div id="image-container">
+      <img id="mainImage" src="ellie.png" alt="Ellie">
+      <img id="gifImage" src="mwah.gif" alt="Mwah" style="display:none;">
     </div>
-</div>
-<script src="script.js"></script>
+
+    <!-- Question and Buttons -->
+    <div id="text-container">
+      <div id="question">May I be your valentine?</div>
+      <div id="options">
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+      </div>
+    </div>
+
+    <!-- Music Control -->
+    <button id="toggleMusic">Pause Music</button>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" src="song.mp3" autoplay loop></audio>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const mainImage = document.getElementById("mainImage");
+    const gifImage = document.getElementById("gifImage");
+    const question = document.getElementById("question");
+    const options = document.getElementById("options");
+    const music = document.getElementById("bgMusic");
+    const toggleBtn = document.getElementById("toggleMusic");
+
+    // Rainbow background flash
+    function flashRainbowColors(callback) {
+      const colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#0000ff','#4b0082','#9400d3'];
+      let i = 0;
+      const interval = setInterval(() => {
+        document.body.style.backgroundColor = colors[i];
+        i = (i + 1) % colors.length;
+      }, 200);
+      setTimeout(() => {
+        clearInterval(interval);
+        document.body.style.backgroundColor = '';
+        if (callback) callback();
+      }, 2000);
+    }
+
+    // Yes button behavior
+    yesBtn.addEventListener("click", () => {
+      flashRainbowColors(() => {
+        mainImage.style.display = "none";  // hide Ellie PNG
+        gifImage.style.display = "block";  // show Mwah GIF
+        question.style.display = "none";   // hide question
+        options.style.display = "none";    // hide buttons
+      });
+    });
+
+    // No button behavior
+    noBtn.addEventListener("click", () => {
+      noBtn.innerText = "You sure?";
+      yesBtn.style.fontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize) * 1.5 + "px";
+    });
+
+    // Music toggle
+    toggleBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggleBtn.innerText = "Pause Music";
+      } else {
+        music.pause();
+        toggleBtn.innerText = "Play Music";
+      }
+    });
+  </script>
 </body>
 </html>
