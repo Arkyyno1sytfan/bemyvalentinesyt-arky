@@ -25,14 +25,15 @@ body {
     display: inline-block;
 }
 
-/* Text under GIF */
 #gifText {
-    display: none;              /* Hidden initially */
+    display: none;
     font-size: 1.5em;
     margin-top: 15px;
     color: #ff69b4;
     font-weight: bold;
+    text-shadow: 1px 1px 2px #fff; /* makes it pop a little */
 }
+
 
 /* Question and buttons */
 #question {
