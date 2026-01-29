@@ -6,6 +6,7 @@ function selectOption(option) {
     if (option === 'yes') {
         // Flash rainbow colors
         flashRainbowColors(function() {
+            document.getElementById('yes-button').style.display = 'none';
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayMwah(); // Display the mwah.gif
         });
