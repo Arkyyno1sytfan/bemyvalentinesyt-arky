@@ -1,61 +1,37 @@
-window.onload = function () {
-    displayEllie();
-};
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const mainImage = document.getElementById("mainImage");
+const gifImage = document.getElementById("gifImage");
+const question = document.getElementById("question");
+const options = document.getElementById("options");
 
-function selectOption(option) {
-    if (option === 'yes') {
-        flashRainbowColors(function () {
-            document.getElementById('question').style.display = 'none';
-            displayMwah();
-        });
-    } else if (option === 'no') {
-        const noBtn = document.getElementById('no-button');
-        const yesBtn = document.getElementById('yes-button');
-
-        noBtn.innerText = 'You sure?';
-
-        const size = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-        yesBtn.style.fontSize = size * 1.5 + 'px';
-    }
-}
-
+// Rainbow background flash
 function flashRainbowColors(callback) {
-    const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+    const colors = ['#ff0000','#ff7f00','#ffff00','#00ff00','#0000ff','#4b0082','#9400d3'];
     let i = 0;
-
     const interval = setInterval(() => {
         document.body.style.backgroundColor = colors[i];
         i = (i + 1) % colors.length;
     }, 200);
-
     setTimeout(() => {
         clearInterval(interval);
         document.body.style.backgroundColor = '';
-        callback();
+        if (callback) callback();
     }, 2000);
 }
 
-function displayEllie() {
-    const container = document.getElementById('image-container');
-    container.innerHTML = '';
+// Yes button behavior
+yesBtn.addEventListener("click", () => {
+    flashRainbowColors(() => {
+        mainImage.style.display = "none";  // hide Ellie PNG
+        gifImage.style.display = "block";  // show Mwah GIF
+        question.style.display = "none";   // hide question
+        options.style.display = "none";    // hide buttons
+    });
+});
 
-    const img = new Image();
-    img.src = 'ellie.png';
-    img.alt = 'Ellie';
-
-    container.appendChild(img);
-}
-
-function displayMwah() {
-    const container = document.getElementById('image-container');
-    container.innerHTML = ''; // clear existing image
-
-    const img = new Image();
-    img.src = 'mwah.gif'; 
-    img.alt = 'Mwah';
-
-    container.appendChild(img);
-
-    document.getElementById('options').style.display = 'none';
-}
-
+// No button behavior
+noBtn.addEventListener("click", () => {
+    noBtn.innerText = "You sure?";
+    yesBtn.style.fontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize) * 1.5 + "px";
+});
