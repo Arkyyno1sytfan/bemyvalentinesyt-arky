@@ -15,7 +15,7 @@ body {
 
 #image-container {
     text-align: center;
-    margin-top: 80px;   /* Higher placement of Ellie PNG */
+    margin-top: 80px;   /* Ellie PNG sits higher */
     margin-bottom: 20px;
 }
 
@@ -23,6 +23,14 @@ body {
     max-width: 100%;
     height: auto;
     display: inline-block;
+}
+
+#gifText {
+    display: none;          /* Hidden initially */
+    font-size: 1.5em;
+    color: #ff69b4;         /* Pink */
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 #question {
