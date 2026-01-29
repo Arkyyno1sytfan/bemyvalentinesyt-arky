@@ -1,51 +1,26 @@
-<link rel="stylesheet" href="style.css">
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-   <!-- PNG ABOVE QUESTION -->
-  <img id="mainImage" src="images/ellie.png" alt="PNG Image">
+  <title>May I be your Valentine?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GIF (HIDDEN AT FIRST) -->
-  <img id="gifImage" src="images/mwah.gif" alt="GIF" style="display: none;">
-
-  <button id="yesBtn">Yes</button>
-  <button id="noBtn">No</button>
-
-  <script>
-    const yesBtn = document.getElementById("yesBtn");
-    const mainImage = document.getElementById("mainImage");
-    const gifImage = document.getElementById("gifImage");
-
-    yesBtn.addEventListener("click", () => {
-      mainImage.style.display = "none"; // PNG disappears
-      gifImage.style.display = "block"; // GIF pops up
-    });
-  </script>
-
-</body>
-</html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>May I be your valentine?</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
-    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap">
 </head>
 <body>
-    <div id="container">
-        <div id="image-container"></div> <!-- Container for displaying images -->
-        <div id="text-container">
-            <div id="question">May I be your valentine?</div> <!-- Question -->
-            <div id="options">
-                <button id="yes-button" onclick="selectOption('yes')">Yes</button> <!-- Yes button -->
-                <button id="no-button" onclick="selectOption('no')">No</button> <!-- No button -->
-            </div>
-        </div>
-    </div>
 
-    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+  <div id="container">
+    <div id="image-container"></div>
+
+    <div id="question">May I be your valentine?</div>
+
+    <div id="options">
+      <button id="yes-button" onclick="selectOption('yes')">Yes</button>
+      <button id="no-button" onclick="selectOption('no')">No</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
