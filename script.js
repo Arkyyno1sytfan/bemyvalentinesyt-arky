@@ -39,8 +39,28 @@ noBtn.addEventListener("click", () => {
 // Select the audio element
 const music = document.getElementById("bgMusic");
 
-// Autoplay and loop
+
+// Select the audio element
+const song = document.getElementById("bgMusic");
 music.loop = true;
-music.play().catch(err => {
-    console.log("Autoplay blocked:", err);
-});
+
+// Flag to ensure music only starts once
+let musicStarted = false;
+
+// Function to play music on first interaction
+function startMusic() {
+    if (!musicStarted) {
+        music.play().catch(err => {
+            console.log("Autoplay blocked:", err);
+        });
+        musicStarted = true;
+        // Remove the event listeners once triggered
+        window.removeEventListener("click", startMusic);
+        window.removeEventListener("keydown", startMusic);
+    }
+}
+
+// Listen for the first click or key press
+window.addEventListener("click", startMusic);
+window.addEventListener("keydown", startMusic);
+
