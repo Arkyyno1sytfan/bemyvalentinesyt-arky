@@ -1,9 +1,7 @@
-// Run when page loads
 window.onload = function () {
     displayEllie();
 };
 
-// Handle button clicks
 function selectOption(option) {
     if (option === 'yes') {
         flashRainbowColors(function () {
@@ -21,7 +19,6 @@ function selectOption(option) {
     }
 }
 
-// Rainbow flash
 function flashRainbowColors(callback) {
     const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
     let i = 0;
@@ -38,7 +35,6 @@ function flashRainbowColors(callback) {
     }, 2000);
 }
 
-// Show ellie.png
 function displayEllie() {
     const container = document.getElementById('image-container');
     container.innerHTML = '';
@@ -50,7 +46,6 @@ function displayEllie() {
     container.appendChild(img);
 }
 
-// Show mwah.gif
 function displayMwah() {
     const container = document.getElementById('image-container');
     container.innerHTML = '';
