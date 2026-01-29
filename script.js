@@ -35,3 +35,12 @@ noBtn.addEventListener("click", () => {
     noBtn.innerText = "You sure?";
     yesBtn.style.fontSize = parseFloat(window.getComputedStyle(yesBtn).fontSize) * 1.5 + "px";
 });
+
+// Select the audio element
+const music = document.getElementById("bgMusic");
+
+// Autoplay and loop
+music.loop = true;
+music.play().catch(err => {
+    console.log("Autoplay blocked:", err);
+});
