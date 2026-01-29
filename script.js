@@ -48,12 +48,13 @@ function displayEllie() {
 
 function displayMwah() {
     const container = document.getElementById('image-container');
-    container.innerHTML = '';
+    container.innerHTML = ''; // clear existing image
 
     const img = new Image();
-    img.src = 'images/mwah.gif';
+    img.src = 'images/mwah.gif'; // ✅ include .gif extension
     img.alt = 'Mwah';
 
     container.appendChild(img);
+
     document.getElementById('options').style.display = 'none';
 }
