@@ -1,7 +1,31 @@
 <link rel="stylesheet" href="style.css">
-<img src="images/ellie.png" alt="Ellie">
-<img src="images/mwah.gif" alt="Animated MWah GIF">
 <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <!-- PNG ABOVE QUESTION -->
+  <img id="mainImage" src="images/ellie.png" alt="PNG Image">
+
+  <!-- GIF (HIDDEN AT FIRST) -->
+  <img id="gifImage" src="images/mwah.gif" alt="GIF" style="display: none;">
+
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">No</button>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const mainImage = document.getElementById("mainImage");
+    const gifImage = document.getElementById("gifImage");
+
+    yesBtn.addEventListener("click", () => {
+      mainImage.style.display = "none"; // PNG disappears
+      gifImage.style.display = "block"; // GIF pops up
+    });
+  </script>
+
+</body>
+</html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

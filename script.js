@@ -1,5 +1,7 @@
 // script.js
 
+ellieImage.alt = 'Ellie';
+mwahImage.alt = 'Mwah';
 // Function to handle button click events
 function selectOption(option) {
     // Check which option was clicked
@@ -43,32 +45,32 @@ function flashRainbowColors(callback) {
 
 // Function to display the ellie.png initially
 function displayellie() {
-    // Get the container where the image will be displayed
+       // Get the container where the image will be displayed
     var imageContainer = document.getElementById('image-container');
     // Create a new Image element for the ellie
     var ellieImage = new Image();
-    // Set the source (file path) for the cat image
-    ellieImage.src = 'ellie.png'; // Assuming the ellie image is named "ellie.png"
+    // Set the source (file path) for the ellie image
+    ellieImage.src = 'images/ellie.png'; // Assuming the ellie image is named "ellie.png"
     // Set alternative text for the image (for accessibility)
     ellieImage.alt = 'Ellie';
     // When the ellie image is fully loaded, add it to the image container
     ellieImage.onload = function() {
-        imageContainer.appendChild(displayEllieImage);
+        imageContainer.appendChild(ellieImage);
     };
 }
 
 // Function to display the mwah.gif
 function displayMwah() {
-    // Clear existing content in the image container
+     // Clear existing content in the image container
     document.getElementById('image-container').innerHTML = '';
     // Get the container where the image will be displayed
     var imageContainer = document.getElementById('image-container');
     // Create a new Image element for the mwah
     var mwahImage = new Image();
     // Set the source (file path) for the mwah image
-    mwahImage.src = 'mwah.gif'; // Assuming the mwah image is named "mwah.gif"
+    mwahImage.src = 'images/mwah'; // Assuming the mwah image is named "mwah.gif"
     // Set alternative text for the image (for accessibility)
-    catHeartImage.alt = 'Mwah';
+    mwahImage.alt = 'Mwah';
     // When the cat-heart image is fully loaded, add it to the image container
     mwahImage.onload = function() {
         imageContainer.appendChild(mwahImage);
