@@ -26,12 +26,11 @@ yesBtn.addEventListener("click", () => {
     flashRainbowColors(() => {
         mainImage.style.display = "none";   // hide Ellie PNG
         gifImage.style.display = "block";   // show Mwah GIF
-        gifText.style.display = "block";    // ✅ show text
+        gifText.style.display = "block";    // show text under GIF
         question.style.display = "none";    // hide question
         options.style.display = "none";     // hide buttons
     });
 });
-
 
 // No button behavior
 noBtn.addEventListener("click", () => {
