@@ -40,7 +40,7 @@ function displayEllie() {
     container.innerHTML = '';
 
     const img = new Image();
-    img.src = 'images/ellie.png';
+    img.src = 'ellie.png';
     img.alt = 'Ellie';
 
     container.appendChild(img);
@@ -51,7 +51,7 @@ function displayMwah() {
     container.innerHTML = ''; // clear existing image
 
     const img = new Image();
-    img.src = 'images/mwah.gif'; // ✅ include .gif extension
+    img.src = 'mwah.gif'; 
     img.alt = 'Mwah';
 
     container.appendChild(img);
