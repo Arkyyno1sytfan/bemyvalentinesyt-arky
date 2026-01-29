@@ -16,10 +16,8 @@ body {
 }
 
 #image-container {
-    width: 300px;       /* sets the size of the container */
-  height: 200px;
-  background-color: transparent; /* nothing visible */
-  border: none;       /* optional: no border */
+  margin-top: 20px;  /* move the image container down or up */
+  text-align: center; /* center image horizontally */
 }
 
 #question {
@@ -40,4 +38,9 @@ button {
     color: white; /* Set text color to white */
     border: none; /* Remove button border */
     cursor: pointer; /* Set cursor to pointer on hover */
+}
+
+#image-container {
+  margin-top: -10px; /* moves it slightly up */
+  text-align: center;
 }
